@@ -25,4 +25,45 @@ def test_get_by_name():
     print("Resposta:", response.json())
     return response.status_code == 200
 
+def test_delete():
+    print("\nTeste: Deletar Especialidade (DELETE /especialidade/Teste)")
+    response = requests.delete(f"{BASE_URL}/Teste")
+    print("Status:", response.status_code)
+    print("Resposta:", response.json())
+    return response.status_code == 200
+
+def main():
+    # Executa o teste de criação
+    if test_create():
+        print("Criação realizada com sucesso!")
+    else:
+        print("Falha na criação da especialidade!")
+    
+    # Executa o teste de listagem
+    if test_list():
+        print("Listagem realizada com sucesso!")
+    else:
+        print("Falha na listagem!")
+    
+    # Executa o teste de busca por nome
+    if test_get_by_name():
+        print("Busca realizada com sucesso!")
+    else:
+        print("Falha na busca pela especialidade!")
+    
+    # Executa o teste de deleção
+    if test_delete():
+        print("Deleção realizada com sucesso!")
+    else:
+        print("Falha ao deletar a especialidade!")
+    
+    # Verificação pós-deleção: a especialidade "Teste" não deve existir
+    print("\nTeste: Verificar que a especialidade foi deletada (GET /especialidade/Teste)")
+    response = requests.get(f"{BASE_URL}/Teste")
+    print("Status (esperado 404):", response.status_code)
+    print("Resposta:", response.json())
+
+if __name__ == '__main__':
+    main()
+
 
