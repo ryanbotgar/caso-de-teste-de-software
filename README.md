@@ -17,23 +17,23 @@ Verificar se as operações de criação, listagem, busca por nome e deleção d
        "nome": "Teste"
      }
      ```
-   - Verificar se o **status code** é `201` e se a resposta retorna os dados da especialidade criada.
+   - Verificar se o status code é `201` e se a resposta retorna os dados da especialidade criada.
 
 2. **Listagem (GET /especialidade)**
    - Enviar uma requisição GET para `/especialidade`.
-   - Verificar se o **status code** é `200` e se a lista de especialidades inclui a recém-criada `"Teste"`.
+   - Verificar se o status code é `200` e se a lista de especialidades inclui a recém-criada `"Teste"`.
 
 3. **Busca por Nome (GET /especialidade/Teste)**
    - Enviar uma requisição GET para `/especialidade/Teste`.
-   - Verificar se o **status code** é `200` e se os dados retornados correspondem à especialidade `"Teste"`.
+   - Verificar se o status code é `200` e se os dados retornados correspondem à especialidade `"Teste"`.
 
 4. **Deleção (DELETE /especialidade/Teste)**
    - Enviar uma requisição DELETE para `/especialidade/Teste`.
-   - Verificar se o **status code** é `200` e se a resposta indica que a especialidade foi removida.
+   - Verificar se o status code é `200` e se a resposta indica que a especialidade foi removida.
 
 5. **Verificação Pós-deleção**
    - Enviar novamente uma requisição GET para `/especialidade/Teste`.
-   - Verificar se o **status code** é `404`, confirmando que a especialidade não está mais disponível.
+   - Verificar se o status code é `404`, confirmando que a especialidade não está mais disponível.
 
 ## Resultado Esperado
 - **Criação:** Retorno `201` com os dados da nova especialidade.
